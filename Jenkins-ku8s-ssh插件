@@ -1,0 +1,8 @@
+
+此篇文章Jenkins-ku8s之间打通采用ssh插件。
+打通jenkins与k8s-master两台机器之间的ssh无密码访问
+
+总体流程：
+在开发机开发代码后提交到gitlab
+之后通过webhook插件触发jenkins进行构建，jenkins将代码打成docker镜像，push到docker-registry或者是Harbor
+之后将在k8s-master上执行rc、service的创建，进而创建Pod，从私服拉取镜像，根据该镜像启动容器。
